@@ -49,7 +49,7 @@ export const RecipeByName = () => {
     axios
       .get(`https://www.themealdb.com/api/json/v1/1/search.php?f=${tagName}`)
       .then((response) => {
-        console.log(response.data);
+        response
       })
       .catch((error) => {
         console.log(error);

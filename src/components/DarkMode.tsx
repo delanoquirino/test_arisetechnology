@@ -4,7 +4,7 @@ import { BsMoonFill, BsSunFill } from "react-icons/bs";
 
 export const DarkMode = () => {
   const [toggle, setToggle] = useState(true);
-  console.log(toggle);
+  
   
   function toggleThemeMode() {
     const newTheme = toggle ? "light" : "dark";
