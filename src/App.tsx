@@ -1,15 +1,13 @@
-import { useState } from 'react'
+import { Header } from "./components/Header";
+import { Home } from "./pages/Home";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <div>
-        <h1 className='text-blue-500 font-bold text-4xl'>
-          Teste
-        </h1>
+      <Header/>
+      <Home />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
