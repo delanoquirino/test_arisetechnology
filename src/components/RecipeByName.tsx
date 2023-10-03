@@ -57,7 +57,7 @@ export const RecipeByName = () => {
   });
 
   return (
-    <ul className="flex justify-center flex-wrap gap-3 p-2 dark:text-white  ">
+    <ul className="flex justify-center flex-wrap gap-3 p-4 dark:text-white  ">
       {tagLetter.map((item: ItemProps, i) => (
         <li className="text-xl" key={`${i} + item`}>
           <button

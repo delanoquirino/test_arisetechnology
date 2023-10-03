@@ -5,3 +5,9 @@ export interface RecipeRandomProps {
   strYoutube: string;
   strInstructions: string;
 }
+
+export interface RecipeCategoryProps {
+  idCategory: string;
+  strCategory: string;
+  strCategoryThumb: string;
+}

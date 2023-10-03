@@ -4,7 +4,7 @@ import { RecipeRandomProps } from "../utils/types";
 
 export const RecipeRandom = () => {
   const [randomRecipes, setRandomRecipes] = useState<RecipeRandomProps[]>([]);
-  console.log(randomRecipes);
+ 
   useEffect(() => {
     axios
       .get(`https://www.themealdb.com/api/json/v1/1/random.php`)
@@ -19,11 +19,11 @@ export const RecipeRandom = () => {
   return (
     <div className="h-20 w-80">
       {randomRecipes ? (
-        randomRecipes.map((recipe, index) => (
-          <div key={index}>
+        randomRecipes.map((recipe) => (
+          <div key={recipe.idMeal}>
             <h2>{recipe.strMeal}</h2>
             <img src={recipe.strMealThumb} alt={recipe.strMeal} />
-            <p>{recipe.strInstructions}</p>
+            
             <p>{recipe.strYoutube}</p>
           </div>
         ))
