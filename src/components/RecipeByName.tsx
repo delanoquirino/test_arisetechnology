@@ -1,5 +1,4 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 type ItemProps = {
   name: string;
@@ -35,27 +34,16 @@ const tagLetter = [
 ];
 
 export const RecipeByName = () => {
-  const [tagName, setTagName] = useState("");
+  const navigate = useNavigate();
 
   const handleTagItemClick = (itemName: string) => {
-    if (itemName === tagName) {
-      setTagName("");
-    } else {
-      setTagName(itemName);
-    }
+    if (!itemName) return;
+
+    navigate(`/search?q=${itemName}`);
+
   };
 
-  useEffect(() => {
-    axios
-      .get(`https://www.themealdb.com/api/json/v1/1/search.php?f=${tagName}`)
-      .then((response) => {
-        response
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  });
-
+  
   return (
     <ul className="flex justify-center flex-wrap gap-3 p-4 dark:text-white  ">
       {tagLetter.map((item: ItemProps, i) => (

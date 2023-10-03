@@ -15,7 +15,7 @@ export const RecipeCategory = () => {
         setRecipeCategory(response.data.categories);
       } catch (error) {
         console.error("Erro ao buscar categorias de receitas:", error);
-        // Lidar com o erro aqui, por exemplo, mostrando uma mensagem ao usuário
+        
       }
     };
   
