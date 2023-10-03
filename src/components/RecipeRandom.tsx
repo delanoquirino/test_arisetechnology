@@ -17,7 +17,7 @@ export const RecipeRandom = () => {
   }, []);
 
   return (
-    <div className="mt-5 hidden md:block">
+    <div className="hidden md:block">
       <h2 className="font-bold text-3xl dark:text-white">Random Recipes</h2>
       <div className="md:grid md: grid-cols-3 gap-3 lg:grid-cols-4 mt-5">
         {randomRecipes ? (
@@ -26,10 +26,10 @@ export const RecipeRandom = () => {
               <img
                 src={recipe.strMealThumb}
                 alt={recipe.strMeal}
-                className="h-64 rounded-lg object-cover"
+                className="h-64 w-full rounded-lg object-cover"
               />
 
-              <h3 className="dark:text-white text-base font-bold p-2">
+              <h3 className="text-base font-bold p-2">
                 {recipe.strMeal}
               </h3>
             </div>
