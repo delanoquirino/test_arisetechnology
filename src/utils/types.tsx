@@ -2,7 +2,6 @@ export interface RecipeRandomProps {
   strMeal: string;
   idMeal: string;
   strMealThumb: string;
-  strYoutube: string;
 }
 
 export interface AllRecipeProps {
@@ -11,7 +10,7 @@ export interface AllRecipeProps {
   strMealThumb: string;
   strYoutube: string;
   strCategory: string;
-  strInstructions: string
+  strInstructions: string;
 }
 
 export interface RecipeCategoryProps {
