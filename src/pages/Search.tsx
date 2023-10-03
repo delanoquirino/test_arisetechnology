@@ -30,7 +30,7 @@ export const Search = () => {
           {recipe ? (
             recipe.map((recipe) => (
               <Link
-                to={`/recibe/${recipe.idMeal}`}
+                to={`/recipe?q=${recipe.idMeal}`}
                 className=" bg-yellow-200 p-3 md:pb-9 rounded-xl  hover:scale-105 transition-all ease-in-out duration-300 cursor-pointer"
                 key={recipe.idMeal}
               >

@@ -9,11 +9,17 @@ export const RecipeCategory = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   
   useEffect(() => {
-    axios
-      .get("https://www.themealdb.com/api/json/v1/1/categories.php")
-      .then((response) => {
+    const fetchCategories = async () => {
+      try {
+        const response = await axios.get("https://www.themealdb.com/api/json/v1/1/categories.php");
         setRecipeCategory(response.data.categories);
-      });
+      } catch (error) {
+        console.error("Erro ao buscar categorias de receitas:", error);
+        // Lidar com o erro aqui, por exemplo, mostrando uma mensagem ao usuário
+      }
+    };
+  
+    fetchCategories();
   }, []);
 
   return (
