@@ -7,7 +7,7 @@ export const RecipeCategory = () => {
     []
   );
   const [activeIndex, setActiveIndex] = useState(0);
-  console.log(recipeCategory);
+  
   useEffect(() => {
     axios
       .get("https://www.themealdb.com/api/json/v1/1/categories.php")
