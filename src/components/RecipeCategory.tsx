@@ -18,7 +18,7 @@ export const RecipeCategory = () => {
 
   return (
     <div>
-      <h2 className="text-3xl font-bold dark:text-white">Categories</h2>
+      <h2 className="text-3xl mb-2 font-bold dark:text-white">Categories</h2>
       {recipeCategory ? (
         recipeCategory.map((recipe, i) => (
           <div

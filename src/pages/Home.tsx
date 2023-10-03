@@ -25,7 +25,7 @@ export const Home = () => {
   return (
     <div className="dark:bg-[#343541]">
       <RecipeByName />
-      <div className="grid grid-cols-4 px-9">
+      <div className="grid grid-cols-4 gap-5 px-9">
         <div className="h-full hidden md:block">
           <RecipeCategory />
         </div>
