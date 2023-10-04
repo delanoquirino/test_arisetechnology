@@ -60,14 +60,14 @@ export const Recipe = () => {
         <h1 className="font-bold text-xl my-4">{recipe?.strMeal}</h1>
         <div>
           <h2 className="font-bold text-lx mt-7 mb-2">Ingredients:</h2>
-          <ul className="list-none flex gap-2 flex-wrap">
+          <ul className="list-none flex gap-2 flex-wrap text-sm sm:text-lg">
             {ingredients?.map((ingredient, i) => (
               <li
-                className="flex items-center gap-2 mb-2 p-2  cursor-pointer bg-yellow-200 text-black dark:hover:text-black rounded-xl transition-colors duration-200"
+                className="flex items-center text-base gap-2 mb-2 p-1 md:p-2  cursor-pointer bg-yellow-200 text-black dark:hover:text-black rounded-xl transition-colors duration-200"
                 key={i}
               >
-                <h3 className="dark:text-inherit text-lg ">
-                  <span>{ingredient}</span> - <span>{measures[i]}</span>
+                <h3 className="dark:text-inherit ">
+                  <span >{ingredient}</span> - <span >{measures[i]}</span>
                 </h3>
               </li>
             ))}

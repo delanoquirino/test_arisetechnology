@@ -39,7 +39,7 @@ export const RecipeByName = () => {
   const handleTagItemClick = (itemName: string) => {
     if (!itemName) return;
 
-    navigate(`/search?q=${itemName}`);
+    navigate(`/searchletter?q=${itemName}`);
 
   };
 

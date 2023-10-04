@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { RecipeRandomProps } from "../utils/types";
+import { Link } from "react-router-dom";
+
 
 export const RecipeRandom = () => {
   const [randomRecipes, setRandomRecipes] = useState<RecipeRandomProps[]>([]);
@@ -42,7 +44,7 @@ export const RecipeRandom = () => {
       <div className="md:grid md: grid-cols-2 gap-6 lg:grid-cols-4 mt-5">
         {randomRecipes ? (
           randomRecipes.map((recipe) => (
-            <div
+            <Link to={`/recipe?q=${recipe.idMeal}`}
               className="bg-yellow-200 rounded-xl group hover:scale-110 transition-all ease-in-out duration-300 cursor-pointer"
               key={recipe.idMeal}
             >
@@ -53,7 +55,7 @@ export const RecipeRandom = () => {
               />
 
               <h3 className="text-base font-bold p-2">{recipe.strMeal}</h3>
-            </div>
+            </Link>
           ))
         ) : (
           <p>Carregando...</p>

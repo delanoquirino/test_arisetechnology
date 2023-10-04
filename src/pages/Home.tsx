@@ -9,13 +9,14 @@ import { RecipeCategory } from "../components/RecipeCategory";
 import { RecipeRandom } from "../components/RecipeRandom";
 import { Link } from "react-router-dom";
 
+
 export const Home = () => {
   const [allRecipes, setAllRecipes] = useState<AllRecipeProps[]>([]);
-
+  const [category, setCategory] = useState('Beef')
   useEffect(() => {
     axios
       .get(
-        `https://www.themealdb.com/api/json/v1/1/search.php?s=
+        `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}
       `
       )
       .then((response) => {
@@ -24,20 +25,20 @@ export const Home = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [category]);
 
   return (
     <div className="dark:bg-[#343541]">
       <RecipeByName />
       <div className="grid grid-cols-4 gap-5 px-9">
         <div className="h-full hidden md:block">
-          <RecipeCategory />
+          <RecipeCategory onSelectedCategory={setCategory} />
         </div>
         <div className="col-span-4 md:col-span-3">
           <RecipeRandom />
           <div>
             <h2 className="font-bold text-3xl dark:text-white mt-5">
-              All Recipe
+            Recipes using: {category}
             </h2>
             <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
               {allRecipes ? (
@@ -47,22 +48,16 @@ export const Home = () => {
                     key={recipe.idMeal}
                   >
                     <img
-                      className="w-full h-[80%] rounded-xl object-cover "
+                      className="w-full h-[60%] rounded-xl object-cover "
                       src={recipe.strMealThumb}
                       alt={recipe.strMeal}
                     />
-                    <h2 className="text-xl font-bold">{recipe.strMeal}</h2>
+                    <h2 className="lg:text-xl font-bold">{recipe.strMeal}</h2>
+                    <br />
+                      <p className="max-[328px]:text-xs text-lg font-bold ">
+                        Category: {category}
+                      </p>
                    
-                      <p className="max-[328px]:text-xs ">
-                        <b>Category:</b> {recipe.strCategory}
-                      </p>
-                     
-                
-                    <div className="mt-1 max-w-full">
-                      <p className="max-[360px]:hidden text-sm truncate">
-                        {recipe.strInstructions}
-                      </p>
-                    </div>
                   </Link>
                 ))
               ) : (
