@@ -12,15 +12,13 @@ function App() {
   return (
     <div className="min-h-screen">
       <Header />
-      
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/recipe" element={<Recipe />} />
-          <Route path="/searchletter" element={<SearchLetter />} />
-          <Route path="/search" element={<Search />} />
-          <Route path="*" element={<PageError />} />
-        </Routes>
-
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/recipe" element={<Recipe />} />
+        <Route path="/searchletter" element={<SearchLetter />} />
+        <Route path="/search" element={<Search />} />
+        <Route path="*" element={<PageError />} />
+      </Routes>
     </div>
   );
 }

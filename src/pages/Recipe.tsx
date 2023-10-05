@@ -29,20 +29,23 @@ export const Recipe = () => {
 
   useEffect(() => {
     if (!recipe) return;
-
-    const newIngredients: string[] = [];
-    const newMeasures: string[] = [];
-
-    Object.keys(recipe).forEach((key) => {
-      if (key.includes("strIngredient") && recipe[key] !== "") {
-        newIngredients.push(recipe[key]);
+  
+    const newIngredients: [] = [];
+    const newMeasures: [] = [];
+  
+    for (let i = 1; i <= 20; i++) {
+      const ingredientKey = `strIngredient${i}`;
+      const measureKey = `strMeasure${i}`;
+  
+      if (recipe[ingredientKey] && recipe[ingredientKey] !== "") {
+        newIngredients.push(recipe[ingredientKey]);
       }
-
-      if (key.includes("strMeasure") && recipe[key] !== "") {
-        newMeasures.push(recipe[key]);
+  
+      if (recipe[measureKey] && recipe[measureKey] !== "") {
+        newMeasures.push(recipe[measureKey]);
       }
-    });
-
+    }
+  
     setIngredients(newIngredients);
     setMeasures(newMeasures);
   }, [recipe]);
@@ -67,7 +70,7 @@ export const Recipe = () => {
                 key={i}
               >
                 <h3 className="dark:text-inherit ">
-                  <span >{ingredient}</span> - <span >{measures[i]}</span>
+                  <span >{ingredient}</span>: <span >{measures[i]}</span>
                 </h3>
               </li>
             ))}
