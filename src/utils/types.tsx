@@ -19,13 +19,10 @@ export interface RecipeCategoryProps {
   strCategoryThumb: string;
 }
 
-export interface RecipeDetailsProps  {
+export interface RecipeDetailsProps {
   idMeal: string;
   strArea: string;
   strCategory: string;
-  strCreativeCommonsConfirmed: string | null;
-  strDrinkAlternate: string | null;
-  strImageSource: string | null;
   strIngredient1: string;
   strIngredient2: string;
   strIngredient3: string;
@@ -69,8 +66,6 @@ export interface RecipeDetailsProps  {
   strMeasure18: string;
   strMeasure19: string;
   strMeasure20: string;
-  strSource: string;
-  strTags: string | null;
   strYoutube: string;
-  
+  [key: string]: string | undefined;
 }
