@@ -10,9 +10,8 @@ export const Recipe = () => {
   const [searchParams] = useSearchParams();
   const [recipe, setRecipe] = useState<RecipeDetailsProps>();
 
-  const [ingredients, setIngredients] = useState([]);
-  const [measures, setMeasures] = useState([]);
-
+  const [ingredients, setIngredients] = useState<string[]>([]);
+  const [measures, setMeasures] = useState<string[]>([]);
   const query = searchParams.get("q");
 
   useEffect(() => {
@@ -29,23 +28,23 @@ export const Recipe = () => {
 
   useEffect(() => {
     if (!recipe) return;
-  
-    const newIngredients: [] = [];
-    const newMeasures: [] = [];
-  
+
+    const newIngredients: string[] = [];
+    const newMeasures: string[] = [];
+
     for (let i = 1; i <= 20; i++) {
       const ingredientKey = `strIngredient${i}`;
       const measureKey = `strMeasure${i}`;
-  
-      if (recipe[ingredientKey] && recipe[ingredientKey] !== "") {
+
+      if (recipe[ingredientKey] && typeof recipe[ingredientKey] === 'string') {
         newIngredients.push(recipe[ingredientKey]);
       }
-  
-      if (recipe[measureKey] && recipe[measureKey] !== "") {
+
+      if (recipe[measureKey] && typeof recipe[measureKey] === 'string') {
         newMeasures.push(recipe[measureKey]);
       }
     }
-  
+
     setIngredients(newIngredients);
     setMeasures(newMeasures);
   }, [recipe]);
@@ -70,7 +69,7 @@ export const Recipe = () => {
                 key={i}
               >
                 <h3 className="dark:text-inherit ">
-                  <span >{ingredient}</span>: <span >{measures[i]}</span>
+                  <span>{ingredient}</span>: <span>{measures[i]}</span>
                 </h3>
               </li>
             ))}

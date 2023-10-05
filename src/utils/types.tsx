@@ -67,5 +67,5 @@ export interface RecipeDetailsProps {
   strMeasure19: string;
   strMeasure20: string;
   strYoutube: string;
-  [key: string]: string | undefined;
+  [key: string]: string | "";
 }
