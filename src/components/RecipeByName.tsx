@@ -47,9 +47,9 @@ export const RecipeByName = () => {
   return (
     <ul className="flex justify-center flex-wrap gap-3 p-4 dark:text-white  ">
       {tagLetter.map((item: ItemProps, i) => (
-        <li className="text-xl" key={`${i} + item`}>
+        <li className="md:text-xl text-base " key={`${i} + item`}>
           <button
-            className="uppercase hover:text-[#FEF08A] hover:scale-110"
+            className="uppercase  hover:text-[#FEF08A] hover:scale-110 "
             onClick={() => handleTagItemClick(item.name)}
           >
             {item.name}
