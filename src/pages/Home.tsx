@@ -35,7 +35,7 @@ export const Home = () => {
         <section className="col-span-4 md:col-span-3">
           <RecipeRandom />
           <div className="mt-1 md:mt-10">
-            <h2 className="font-bold text-3xl dark:text-white mt-2 md:mt-5">
+            <h2 className="font-bold  text-3xl dark:text-white mt-2 md:mt-5">
               Recipes using: {category}
             </h2>
             <section className="mt-5 grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
@@ -53,7 +53,7 @@ export const Home = () => {
                   <h2 className="text-xl font-bold truncate">
                     {recipe.strMeal}
                   </h2>
-                  <p className="max-[328px]:text-sm text-base font-bold ">
+                  <p className="text-sm truncate font-bold ">
                     Category: {category}
                   </p>
                 </Link>
