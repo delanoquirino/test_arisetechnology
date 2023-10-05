@@ -3,10 +3,12 @@ import axios from "axios";
 import { Link, useSearchParams } from "react-router-dom";
 import { AllRecipeProps } from "../utils/types";
 import { RecipeByName } from "../components/RecipeByName";
+import { Loading } from "../components/Loading";
 
 export const SearchLetter = () => {
   const [searchParams] = useSearchParams();
   const [recipe, setRecipe] = useState<AllRecipeProps[]>([]);
+  const [loading, setLoading] = useState(true);
 
   const query = searchParams.get("q");
     console.log(query)
@@ -15,14 +17,20 @@ export const SearchLetter = () => {
       .get(`https:/www.themealdb.com/api/json/v1/1/search.php?f=${query}`)
       .then((response) => {
         setRecipe(response.data.meals);
-        
+        setLoading(false);
+
       })
       .catch((error) => {
         console.log(error);
+        setLoading(false);
+
       });
   }, [query]);
   return (
     <div className="min-h-screen dark:bg-[#343541] ">
+       {loading ? (
+        <Loading/>
+      ) : (
       <div className="p-5 ">
         <Link className="font-bold dark:text-white text-center" to="/">Voltar</Link>
         <RecipeByName/>
@@ -58,6 +66,7 @@ export const SearchLetter = () => {
           )}
         </div>
       </div>
+         )}
     </div>
   );
 };

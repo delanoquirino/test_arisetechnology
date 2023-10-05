@@ -7,10 +7,12 @@ import { RecipeByName } from "../components/RecipeByName";
 import { RecipeCategory } from "../components/RecipeCategory";
 import { RecipeRandom } from "../components/RecipeRandom";
 import { Link } from "react-router-dom";
+import { Loading } from "../components/Loading";
 
 export const Home = () => {
   const [allRecipes, setAllRecipes] = useState<AllRecipeProps[]>([]);
   const [category, setCategory] = useState("Beef");
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     axios
       .get(
@@ -19,9 +21,11 @@ export const Home = () => {
       )
       .then((response) => {
         setAllRecipes(response.data.meals);
+        setLoading(false)
       })
       .catch((error) => {
         console.log(error);
+        setLoading(false);
       });
   }, [category]);
 
@@ -38,6 +42,9 @@ export const Home = () => {
             <h2 className="font-bold  text-3xl dark:text-white mt-2 md:mt-5">
               Recipes using: {category}
             </h2>
+            {loading ? (
+        <Loading/>
+      ) : (
             <section className="mt-5 grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               {allRecipes.map((recipe) => (
                 <Link
@@ -59,6 +66,7 @@ export const Home = () => {
                 </Link>
               ))}
             </section>
+            )}
           </div>
         </section>
       </div>

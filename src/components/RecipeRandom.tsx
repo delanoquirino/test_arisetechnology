@@ -2,11 +2,12 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { RecipeRandomProps } from "../utils/types";
 import { Link } from "react-router-dom";
+import { Loading } from "./Loading";
 
 
 export const RecipeRandom = () => {
   const [randomRecipes, setRandomRecipes] = useState<RecipeRandomProps[]>([]);
- 
+  const [loading, setLoading] = useState(true);
   const getRandomMeals = async () => {
     const tempMeals: RecipeRandomProps[] = [];
     while (tempMeals.length !== 4) {
@@ -33,9 +34,11 @@ export const RecipeRandom = () => {
     getRandomMeals()
       .then((randomMeals) => {
         setRandomRecipes(randomMeals);
+        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
+        setLoading(false);
       });
   }, []);
 
@@ -43,25 +46,29 @@ export const RecipeRandom = () => {
     <div className="hidden md:block">
       <h2 className="font-bold text-3xl dark:text-white">Random Recipes</h2>
 
-      <div className="md:grid md:grid-cols-2 gap-6 lg:grid-cols-4 mt-5">
-        {randomRecipes.map((recipe) => (
-          <Link
-            to={`/recipe?q=${recipe.idMeal}`}
-            className="bg-yellow-200 rounded-xl group hover:scale-110 hover:opacity-80 transition-all ease-in-out duration-300 cursor-pointer"
-            key={recipe.idMeal}
-          >
-            <img
-              src={recipe.strMealThumb}
-              alt={recipe.strMeal}
-              className="h-64 w-full rounded-lg object-cover"
-            />
+      {loading ? (
+        <Loading/>
+      ) : (
+        <div className="md:grid md:grid-cols-2 gap-6 lg:grid-cols-4 mt-5">
+          {randomRecipes.map((recipe) => (
+            <Link
+              to={`/recipe?q=${recipe.idMeal}`}
+              className="bg-yellow-200 rounded-xl group hover:scale-110 hover:opacity-80 transition-all ease-in-out duration-300 cursor-pointer"
+              key={recipe.idMeal}
+            >
+              <img
+                src={recipe.strMealThumb}
+                alt={recipe.strMeal}
+                className="h-64 w-full rounded-lg object-cover"
+              />
 
-            <h3 className="text-base truncate font-bold p-2">
-              {recipe.strMeal}
-            </h3>
-          </Link>
-        ))}
-      </div>
+              <h3 className="text-base truncate font-bold p-2">
+                {recipe.strMeal}
+              </h3>
+            </Link>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

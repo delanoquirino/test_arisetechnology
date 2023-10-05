@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useSearchParams } from "react-router-dom";
 import { AllRecipeProps } from "../utils/types";
+import { Loading } from "../components/Loading";
 export const Search = () => {
   const [searchParams] = useSearchParams();
   const [recipe, setRecipe] = useState<AllRecipeProps[]>([]);
-
+  const [loading, setLoading] = useState(true);
   const query = searchParams.get("q");
   console.log(query)
   useEffect(() => {
@@ -13,14 +14,19 @@ export const Search = () => {
       .get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`)
       .then((response) => {
         setRecipe(response.data.meals);
+        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
+        setLoading(false);
       });
   }, [query]);
 
   return (
     <div className="min-h-screen dark:bg-[#343541] ">
+       {loading ? (
+        <Loading/>
+      ) : (
       <div className="p-5 ">
         <Link className="font-bold dark:text-white text-center" to="/">Voltar</Link>
         <h2 className="font-bold text-3xl text-center dark:text-white mt-5">
@@ -56,6 +62,7 @@ export const Search = () => {
           )}
         </div>
       </div>
+      )}
     </div>
   );
 };

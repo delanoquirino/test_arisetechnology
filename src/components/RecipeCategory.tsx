@@ -15,7 +15,7 @@ export const RecipeCategory = ({
   );
 
   const [nav, setNav] = useState(false);
-
+    
   const [activeCategory, setActiveCategory] = useState("Beef");
   onSelectedCategory(activeCategory);
   useEffect(() => {
