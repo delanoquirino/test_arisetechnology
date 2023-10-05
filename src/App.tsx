@@ -11,6 +11,7 @@ import { SearchLetter } from "./pages/SearchLetter";
 function App() {
   return (
     <div className="min-h-screen">
+     
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />

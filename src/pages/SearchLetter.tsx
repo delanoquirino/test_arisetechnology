@@ -14,7 +14,7 @@ export const SearchLetter = () => {
     console.log(query)
   useEffect(() => {
     axios
-      .get(`https:/www.themealdb.com/api/json/v1/1/search.php?f=${query}`)
+      .get(`https://www.themealdb.com/api/json/v1/1/search.php?f=${query}`)
       .then((response) => {
         setRecipe(response.data.meals);
         setLoading(false);
@@ -27,6 +27,8 @@ export const SearchLetter = () => {
       });
   }, [query]);
   return (
+    <>
+    
     <div className="min-h-screen dark:bg-[#343541] ">
        {loading ? (
         <Loading/>
@@ -68,5 +70,6 @@ export const SearchLetter = () => {
       </div>
          )}
     </div>
+    </>
   );
 };
