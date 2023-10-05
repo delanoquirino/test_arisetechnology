@@ -25,6 +25,7 @@ export const RecipeCategory = ({
           "https://www.themealdb.com/api/json/v1/1/categories.php"
         );
         setRecipeCategory(response.data.categories);
+        
       } catch (error) {
         console.error("Error when searching for recipe categories:", error);
       }
@@ -73,7 +74,7 @@ export const RecipeCategory = ({
 
       <FaBars
         onClick={() => setNav(!nav)}
-        className=" block cursor-pointer md:hidden z-10 dark:bg-white"
+        className=" block cursor-pointer md:hidden z-10 dark:bg-white mx-[50%]"
       />
 
       {nav && (
@@ -81,10 +82,10 @@ export const RecipeCategory = ({
           <ul className="h-full grid grid-cols-1 fixed top-0 left-0 w-full z-50 dark:bg-[#343541] bg-white overflow-hidden;">
             <FaTimes
               onClick={() => setNav(!nav)}
-              className="mb-10 cursor-pointer md:hidden z-10 mx-[50%] mt-10 dark:bg-white"
+              className="mb-10 cursor-pointer md:hidden z-10 mx-[50%] mt-10 dark:bg-white "
             />
             <h2 className="text-3xl mb-2 font-bold dark:text-white">
-              Categories
+              Categories:
             </h2>
             {recipeCategory.map((recipe, i) => (
               <li
