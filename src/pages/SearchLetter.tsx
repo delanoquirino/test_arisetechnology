@@ -42,7 +42,7 @@ export const SearchLetter = () => {
                   src={recipe.strMealThumb}
                   alt={recipe.strMeal}
                 />
-                <h2 className="text-xl font-bold">{recipe.strMeal}</h2>
+                <h2 className="text-xl truncate font-bold">{recipe.strMeal}</h2>
                 <p className="max-[328px]:text-xs ">
                   <b>Category:</b> {recipe.strCategory}
                 </p>
