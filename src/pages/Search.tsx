@@ -51,7 +51,8 @@ export const Search = () => {
               </Link>
             ))
           ) : (
-            <p>Carregando...</p>
+            <p>No results found.
+           </p>
           )}
         </div>
       </div>

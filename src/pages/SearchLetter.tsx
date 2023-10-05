@@ -54,7 +54,7 @@ export const SearchLetter = () => {
               </Link>
             ))
           ) : (
-            <p>Carregando...</p>
+            <p className="dark:text-white text-lg">No recipe with that letter...</p>
           )}
         </div>
       </div>
