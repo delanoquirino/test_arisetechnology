@@ -6,7 +6,7 @@
 
 ### 🧠 About
 
-Projeto para a vaga de Desenvolvedor Front-end da Leadster, com o objetivo de criar uma landing page com as seguintes funcionalidades:
+Projeto para a vaga de Desenvolvedor Front-end da Arisetechnology, com o objetivo de criar uma landing page com as seguintes funcionalidades:
 
 - Site responsivo de receitas que o usuário consiga buscar receitas por nome, primeira letra e ingredientes.
 - As receitas devem ser obtidas da API TheMealDB.
